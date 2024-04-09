@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:practic/shared_thyme_properties.dart';
+import 'package:practic/thyme_widget.dart';
 
 class CalculatorScreen extends StatefulWidget {
   CalculatorScreen({super.key});
-
-  Color buttonColor = ThymeProperties.buttonColor;
-  Color buttonFontColor = ThymeProperties.buttonFontColor;
 
   @override
   _CalculatorScreenState createState() => _CalculatorScreenState();
@@ -70,7 +68,6 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
         _output += buttonText;
       }
     }
-
     // Обновить состояние виджета для обновления интерфейса.
     setState(() {
       _output;
@@ -85,10 +82,10 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
         child: ElevatedButton(
           onPressed: () => buttonPressed(buttonText),
           style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(widget.buttonColor)),
+              backgroundColor: MaterialStateProperty.all(ThymeProperties.buttonColor)),
           child: Text(
             buttonText,
-            style: TextStyle(fontSize: 20.0, color: widget.buttonFontColor),
+            style: TextStyle(fontSize: 20.0, color: ThymeProperties.buttonFontColor),
           ),
         ),
       ),
@@ -99,14 +96,30 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Счёты)'), // Заголовок на экране калькулятора.
+        title: const Text('Счёты)'),
+        centerTitle: true,// Заголовок на экране калькулятора.
       ),
       body: Column(
         children: <Widget>[
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ThymeWidget()),
+              ).then((value) {
+                setState(() {
+
+                });
+              });
+            },
+            style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(ThymeProperties.buttonColor)),
+            child: const Icon(Icons.settings),
+          ),
           // Отображение истории операций.
           Container(
             alignment: Alignment.centerRight,
-            padding: EdgeInsets.symmetric(vertical: 24.0, horizontal: 12.0),
+            padding: const EdgeInsets.symmetric(vertical: 24.0, horizontal: 12.0),
             child: Text(
               _outputHistory,
               style: TextStyle(fontSize: 20.0),
@@ -115,13 +128,13 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
           // Отображение текущего вывода.
           Container(
             alignment: Alignment.centerRight,
-            padding: EdgeInsets.symmetric(vertical: 24.0, horizontal: 12.0),
+            padding: const EdgeInsets.symmetric(vertical: 24.0, horizontal: 12.0),
             child: Text(
               _output,
-              style: TextStyle(fontSize: 48.0, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 48.0, fontWeight: FontWeight.bold),
             ),
           ),
-          Expanded(
+          const Expanded(
             child: Divider(),
           ),
           // Размещение кнопок для цифр и операций.

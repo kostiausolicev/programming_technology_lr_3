@@ -35,7 +35,15 @@ class _ThymeState extends State<ThymeWidget> {
                 color: buttonColor,
                 onColorChanged: (Color value) =>
                     colorChanged(value, buttonFontColor),
-              )
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(ThymeProperties.buttonColor)),
+                child: Text('Назад', style: TextStyle(color: ThymeProperties.buttonFontColor)),
+              ),
             ],
           )),
     );
