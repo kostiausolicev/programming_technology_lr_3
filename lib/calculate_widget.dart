@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:practic/shared_thyme_properties.dart';
 
 class CalculatorScreen extends StatefulWidget {
-  CalculatorScreen(
-      {super.key, required this.buttonColor, required this.buttonFontColor});
+  CalculatorScreen({super.key});
 
-  Color buttonColor = Color.fromARGB(255, 249, 222, 174);
-  Color buttonFontColor = Color.fromARGB(255, 0, 0, 0);
+  Color buttonColor = ThymeProperties.buttonColor;
+  Color buttonFontColor = ThymeProperties.buttonFontColor;
 
   @override
   _CalculatorScreenState createState() => _CalculatorScreenState();
