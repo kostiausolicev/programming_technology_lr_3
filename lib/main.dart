@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:practic/thyme_widget.dart';
 
 import 'calculate_widget.dart';
 
@@ -17,7 +18,7 @@ class CalculatorApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue, // Основной цвет приложения.
       ),
-      home: CalculatorScreen(), // Основной экран калькулятора.
+      home: ThymeWidget(), // Основной экран калькулятора.
     );
   }
 }

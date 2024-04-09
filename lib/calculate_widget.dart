@@ -78,7 +78,6 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
     });
   }
 
-  // Создание кнопки для калькулятора.
   Widget buildButton(String buttonText) {
     return Expanded(
       child: Padding(
