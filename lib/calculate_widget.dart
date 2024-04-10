@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:practic/shared_thyme_properties.dart';
 import 'package:practic/thyme_widget.dart';
@@ -82,10 +83,12 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
         child: ElevatedButton(
           onPressed: () => buttonPressed(buttonText),
           style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(ThymeProperties.buttonColor)),
+              backgroundColor:
+                  MaterialStateProperty.all(ThymeProperties.buttonColor)),
           child: Text(
             buttonText,
-            style: TextStyle(fontSize: 20.0, color: ThymeProperties.buttonFontColor),
+            style: TextStyle(
+                fontSize: 20.0, color: ThymeProperties.buttonFontColor),
           ),
         ),
       ),
@@ -97,29 +100,37 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Счёты)'),
-        centerTitle: true,// Заголовок на экране калькулятора.
+        centerTitle: true, // Заголовок на экране калькулятора.
       ),
       body: Column(
         children: <Widget>[
-          ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const ThymeWidget()),
-              ).then((value) {
-                setState(() {
-
-                });
-              });
-            },
-            style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(ThymeProperties.buttonColor)),
-            child: const Icon(Icons.settings),
+          Row(
+            children: [
+              Container(
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 24.0, horizontal: 12.0),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ThymeWidget()),
+                      ).then((value) {
+                        setState(() {});
+                      });
+                    },
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                            ThymeProperties.buttonColor)),
+                    child: const Icon(Icons.settings),
+                  )),
+            ],
           ),
           // Отображение истории операций.
           Container(
             alignment: Alignment.centerRight,
-            padding: const EdgeInsets.symmetric(vertical: 24.0, horizontal: 12.0),
+            padding:
+                const EdgeInsets.symmetric(vertical: 24.0, horizontal: 12.0),
             child: Text(
               _outputHistory,
               style: TextStyle(fontSize: 20.0),
@@ -128,10 +139,12 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
           // Отображение текущего вывода.
           Container(
             alignment: Alignment.centerRight,
-            padding: const EdgeInsets.symmetric(vertical: 24.0, horizontal: 12.0),
+            padding:
+                const EdgeInsets.symmetric(vertical: 24.0, horizontal: 12.0),
             child: Text(
               _output,
-              style: const TextStyle(fontSize: 48.0, fontWeight: FontWeight.bold),
+              style:
+                  const TextStyle(fontSize: 48.0, fontWeight: FontWeight.bold),
             ),
           ),
           const Expanded(
