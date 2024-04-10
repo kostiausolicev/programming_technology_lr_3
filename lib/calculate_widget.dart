@@ -122,7 +122,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                     style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(
                             ThymeProperties.buttonColor)),
-                    child: const Icon(Icons.settings),
+                    child: Icon(Icons.settings, color: ThymeProperties.buttonFontColor),
                   )),
             ],
           ),
